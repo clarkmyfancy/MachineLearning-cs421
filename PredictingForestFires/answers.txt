@@ -1,4 +1,4 @@
 A)
-    The vast majority of the forest fires in this data set burn between 0 and 200 Hectares (ha). A minimal amount of fires burned between 200 and 600 ha, and a few fires burned more than 800 ha.
+    Most of the data represents circumstances in which a fire burned 0 Hectares (ha). The vast majority of the forest fires that did break out burned less than 200 ha. A minimal amount of fires burned between 200 and 600 ha, and a few fires burned more than 800 ha.
 
 B)

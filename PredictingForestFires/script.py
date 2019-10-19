@@ -13,11 +13,11 @@ def generateHistogramUsingOutputFrom(data):
         burnedAreaIndex = 12  
         burnedAreaFrequency = []
         for i, row in enumerate(CsvData):
-            # skip first row of feature titles
+            # skip first row (contains feature titles)
             if i == 0:
                 continue
             burnedAreaFrequency.append(float(row[burnedAreaIndex]))
-        plot.hist(burnedAreaFrequency, color = 'blue', bins = 5)
+        plot.hist(burnedAreaFrequency, color = 'blue', bins = 100)
         plot.xlabel('Burned Area (ha)')
         plot.ylabel('Frequency')
         plot.show()
