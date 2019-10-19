@@ -18,8 +18,8 @@ def generateHistogramUsingOutputFrom(data):
                 continue
             burnedAreaFrequency.append(float(row[burnedAreaIndex]))
         plot.hist(burnedAreaFrequency, color = 'blue', bins = 5)
-        plot.ylabel('Burned Area (ha)')
-        plot.xlabel('Frequency')
+        plot.xlabel('Burned Area (ha)')
+        plot.ylabel('Frequency')
         plot.show()
 
 
