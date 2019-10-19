@@ -1,0 +1,2 @@
+A)
+    The vast majority of the forest fires in this data set burn between 0 and 200 Hectares (ha). A minimal amount of fires burned between 200 and 600 ha, and a few fires burned more than 800 ha.
