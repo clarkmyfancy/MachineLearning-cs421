@@ -1,3 +1,9 @@
+import csv
+import matplotlib.pyplot as plt 
+import numpy as np 
+import pandas as pd 
+import sys 
+import math 
 
 def main():
     test_data = 'hw3_question1.csv'
