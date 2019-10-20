@@ -35,29 +35,31 @@ def main():
     
 
     data = pd.read_csv(even_smaller_data_set, header = None)
+    # data = pd.read_csv(small_data_set, header = None)
+    # data = pd.read_csv(shuffled_data_set, header = None)
     num_rows = len(data)
-    num_data_chunks = 3
-    num_data_partitions = math.ceil(num_rows / num_data_chunks)
-
     
-    chunk_start_index = 0
-    data_chunk_size = math.ceil(num_rows / num_data_partitions)
-    chunk_end_index = data_chunk_size - 1
-    for n in range(0, num_rows, data_chunk_size):
-        Xs = data.drop(data.index[chunk_start_index:chunk_end_index + 1])
-        Ys = data.loc[chunk_start_index:chunk_end_index]
-        chunk_start_index += data_chunk_size
-        chunk_end_index += data_chunk_size
-        print("Xs")
-        print(Xs)
+
+    # cross-validation implementation
+    num_folds = 4
+    fold_start_index = 0
+    fold_size = math.ceil(num_rows / num_folds)
+    fold_end_index = fold_size - 1
+    for n in range(0, num_rows, fold_size):
+        train_data = data.drop(data.index[fold_start_index:fold_end_index + 1])
+        test_data = data.loc[fold_start_index:fold_end_index]
+        fold_start_index += fold_size
+        fold_end_index += fold_size
+        print("Train Data")
+        print(train_data)
         print()
-        print("Ys")
-        print(Ys)
+        print("Test Data")
+        print(test_data)
         print("----------------")
         print()
     
     # print("number of rows: " + str(num_rows))
-    print("size of data chunk: " + str(data_chunk_size))
+    # print("size of data chunk: " + str(data_chunk_size))
     # print(num_data_partitions)
     # print(Xs)
     # print(Ys)
