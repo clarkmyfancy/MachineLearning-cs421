@@ -45,8 +45,9 @@ def main():
     
     # generateHistogramUsingOutputFrom(test_data)
 
-    thing = pd.read_csv(test_data)
-    print(thing.head())
+    data_set = pd.read_csv(test_data, header = None)
+    suffled_data_set = data_set.sample(frac = 1)
+    suffled_data_set.to_csv('shuffled_q1_data.csv')
 
     print("no errors")
 
