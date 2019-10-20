@@ -43,7 +43,10 @@ def main():
     #     'Area Burned'
     # ]
     
-    generateHistogramUsingOutputFrom(test_data)
+    # generateHistogramUsingOutputFrom(test_data)
+
+    thing = pd.read_csv(test_data)
+    print(thing.head())
 
     print("no errors")
 
