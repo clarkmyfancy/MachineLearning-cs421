@@ -32,14 +32,10 @@ def classifyOutcomesOf(data):
     return classificationList
 
 def main():
-
     raw_data_set = 'hw3_question1.csv'
-    shuffled_data_set = 'shuffled_q1_data.csv'
-    # small_data_set = 'small_data_subset.csv'
-    # even_smaller_data_set = 'even_smaller_data_subset.csv'
-    
     # generateHistogramUsingOutputFrom(raw_data_set)
-    
+
+    shuffled_data_set = 'shuffled_q1_data.csv'
     data = pd.read_csv(shuffled_data_set, header = None)
 
     # cross-validation implementation
@@ -67,78 +63,12 @@ def main():
         fold_end_index += fold_size
 
         regression = LogisticRegression(solver = 'lbfgs')
-
         y_train = classifyOutcomesOf(y_train_data)
-
-        # y_train = []
-        # for x in y_train_data.values.tolist():
-        #     if (float(x[0]) > 0.0):
-        #         y_train.append(1)
-        #     else:
-        #         y_train.append(0)
         regression.fit(x_train_data, y_train)
 
         y_test = classifyOutcomesOf(y_test_data)
-        # y_test = []
-        # for x in y_test_data.values.tolist():
-        #     if (float(x[0]) > 0.0):
-        #         y_test.append(1)
-        #     else:
-        #         y_test.append(0)
         accuracy = regression.score(x_test_data, y_test)
         print("Round " + str(loopIteration) + " prediction was: " + str(accuracy))
-        
-        # print("X Train Data")
-        # print(x_train_data)
-        # print()
-        # print("X Test Data")
-        # print(x_test_data)
-        # print()
-        # print("Y Train Data")
-        # print(y_train_data)
-        # print()
-        # print("Y Test Data")
-        # print(y_test_data)
-        # print()
-        # print("Y train data as array")
-        # print(y_train_data.values.tolist())
-        # mergeList = []
-        # for x in y_train_data.values.tolist():
-        #     mergeList += x
-        # print(mergeList)
-        # print()
-        # print(type(y_train_data.values))
-        # print(np.stack(y_train_data.values))
-        # print("----------------")
-        # print()
-    
-    # print("number of rows: " + str(num_rows))
-    # print("size of data chunk: " + str(data_chunk_size))
-    # print(num_data_partitions)
-    # print(Xs)
-    # print(Ys)
-    
-
-    print("no errors")
-
-
 
 if __name__ == '__main__':
     main()
-
-
-    # features = [
-    #     'x-axis spatial coordinate of forest',    # [1,9]
-    #     'y-axis spatial coordinate of forest',    # [2,9]
-    #     'Month',                                  # [1,12]
-    #     'Day',                                    # [1,7]    
-    #     'FFMC',                                   # (index from FWI system)
-    #     'DMC',                                    # (...)
-    #     'DC',                                     # (...)
-    #     'ISI',                                    # (...)
-    #     'Temperature',                            # in Celcius
-    #     'Relative Humidity',
-    #     'Wind Speed',                             # km/h   
-    #     'Rain',                                   # mm/m^2
-    #     'Area Burned'
-    # ]
