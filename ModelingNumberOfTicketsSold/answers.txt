@@ -1,0 +1,2 @@
+1.
+The number of tickets sold each day varies, but over time the ticket sales have been increasing dramatically. 
