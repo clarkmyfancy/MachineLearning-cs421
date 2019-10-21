@@ -68,7 +68,7 @@ def main():
 
         y_test = classifyOutcomesOf(y_test_data)
         accuracy = regression.score(x_test_data, y_test)
-        print("Round " + str(loopIteration) + " prediction was: " + str(accuracy))
+        print("Round " + str(loopIteration) + " prediction accuracy was: " + str(accuracy))
 
 if __name__ == '__main__':
     main()
