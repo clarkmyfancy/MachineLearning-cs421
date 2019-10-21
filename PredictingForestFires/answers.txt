@@ -1,4 +1,14 @@
 A)
-    Most of the data represents circumstances in which a fire burned 0 Hectares (ha). The vast majority of the forest fires that did break out burned less than 200 ha. A minimal amount of fires burned between 200 and 600 ha, and a few fires burned more than 800 ha.
+Most of the data represents circumstances in which a fire burned 0 Hectares (ha). The vast majority of the forest fires that did break out burned less than 200 ha. A minimal amount of fires burned between 200 and 600 ha, and a few fires burned more than 800 ha.
 
 B)
+Round 1 prediction accuracy was: 0.5106382978723404
+Round 2 prediction accuracy was: 0.48936170212765956
+Round 3 prediction accuracy was: 0.48936170212765956
+Round 4 prediction accuracy was: 0.40425531914893614
+Round 5 prediction accuracy was: 0.6170212765957447
+Round 6 prediction accuracy was: 0.44680851063829785
+Round 7 prediction accuracy was: 0.5957446808510638
+Round 8 prediction accuracy was: 0.6595744680851063
+Round 9 prediction accuracy was: 0.44680851063829785
+Round 10 prediction accuracy was: 0.4883720930232558
