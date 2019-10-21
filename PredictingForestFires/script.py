@@ -32,7 +32,7 @@ def classifyOutcomesOf(data):
     return classificationList
 
 def main():
-    raw_data_set = 'hw3_question1.csv'
+    # raw_data_set = 'hw3_question1.csv'
     # generateHistogramUsingOutputFrom(raw_data_set)
 
     shuffled_data_set = 'shuffled_q1_data.csv'
@@ -47,6 +47,7 @@ def main():
     loopIteration = 0
     for _ in range(0, num_rows, fold_size):
         loopIteration += 1
+
         x_train_data = data.drop(data.index[fold_start_index:fold_end_index + 1])
         x_train_data = x_train_data.drop([data.columns[0], data.columns[13]], axis = 1)
 
