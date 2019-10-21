@@ -4,6 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plot 
 import numpy as np 
 from datetime import datetime
+from scipy.stats import poisson
 
 import math 
 from sklearn.linear_model import LogisticRegression
@@ -30,7 +31,10 @@ def getFirstMonthsSales(data):
         datetimes = []
         ticketsSold = []
         endDatetime = datetime.strptime('25-09-2012 00:00', '%d-%m-%Y %H:%M')
+        iterationCount = 0
+        totalTicketsSold = 0
         for i, row in enumerate(CsvData):
+            iterationCount += 1
             # skip first row (contains feature titles)
             if i == 0:
                 continue
@@ -38,8 +42,12 @@ def getFirstMonthsSales(data):
             currentRowDatetime = datetime.strptime(row[0], '%d-%m-%Y %H:%M')
             if currentRowDatetime >= endDatetime:
                 break
+            totalTicketsSold += int(row[1])
             datetimes.append(currentRowDatetime)
             ticketsSold.append(int(row[1]))
+        averageTicketSalesPerHour = totalTicketsSold / iterationCount
+        print(averageTicketSalesPerHour)
+            
         plot.bar(datetimes, ticketsSold, color = 'blue')
         plot.xlabel('DateTime')
         plot.ylabel('TicketsSold')

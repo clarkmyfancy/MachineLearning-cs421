@@ -1,4 +1,5 @@
 1.
 The number of tickets sold each day varies, but over time the ticket sales have been increasing dramatically. 
 2. 
-The number of tickets sold each day is relatively constant, hovering around 10. There are a few anomolies though. For example, one day 35 tickets were sold and there are a few days near the end of the month period where around 20 tickets were sold. 
+    a) The number of tickets sold each day is relatively constant, hovering around 10. There are a few anomolies though. For example, one day 35 tickets were sold and there are a few days near the end of the month period where around 20 tickets were sold. 
+    b)
