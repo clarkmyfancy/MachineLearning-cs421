@@ -22,7 +22,7 @@ def main():
 
     # cross-validation implementation
     num_rows = len(train_data)
-    num_folds = 2
+    num_folds = 3
     fold_size = math.ceil(num_rows / num_folds)
     fold_start_index = 0
     fold_end_index = fold_size - 1
