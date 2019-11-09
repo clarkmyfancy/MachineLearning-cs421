@@ -2,6 +2,16 @@ import pandas as pd
 import csv
 import numpy as np
 import math
+from sklearn.tree import DecisionTreeRegressor
+
+def printVariables(variables):
+    for i, var in enumerate(variables):
+        print(var)
+        print(variables[var])
+        if i == len(variables) - 1:
+            break
+        print("___________")
+        print()
 
 def main():
     train_data_set = 'OnlineNewsPopularityTrain_small_subset.csv'
@@ -12,38 +22,47 @@ def main():
 
     # cross-validation implementation
     num_rows = len(train_data)
-    num_folds = 5
+    num_folds = 2
     fold_size = math.ceil(num_rows / num_folds)
     fold_start_index = 0
     fold_end_index = fold_size - 1
-    loopIteration = 0
+    foldNum = 0
     for _ in range(0, num_rows, fold_size):
-        loopIteration += 1
+        foldNum += 1
+        print("Fold: " + str(foldNum))
 
-        x_train_data = train_data.drop(train_data.index[fold_start_index:fold_end_index + 1])
-        x_train_data = x_train_data.drop([train_data.columns[0], train_data.columns[13]], axis = 1)
+        test_fold_x = test_data.loc[fold_start_index:fold_end_index]
+        x_test = test_fold_x.drop([test_data.columns[0], test_data.columns[60]], axis = 1)
+        train_fold_x = train_data.drop(train_data.index[fold_start_index:fold_end_index + 1])
+        x_train = train_fold_x.drop([train_data.columns[0], train_data.columns[60]], axis = 1)
 
+        test_fold_y = test_data.loc[fold_start_index:fold_end_index]
+        y_test = test_fold_y.drop(test_data.columns[0:60], axis = 1)
+        train_fold_y = train_data.drop(train_data.index[fold_start_index:fold_end_index + 1])
+        y_train = train_fold_y.drop(train_data.columns[0:60], axis = 1)
+
+        vars = {
+            "X Test Data": x_test,
+            "X Train Data": x_train, 
+            "Y Test Data": y_test, 
+            "Y Train Data": y_train
+        }
+        printVariables(vars)
+        print("**************")
+        print()
+
+        regression = DecisionTreeRegressor()
+        # y_train = classifyOutcomesOf(y_train_data)
+        # regression.fit(x_train_data, y_train)
 
         fold_start_index += fold_size
         fold_end_index += fold_size
+
 if __name__ == '__main__': 
     main()
 
 
-    #     y_train_data = data.drop(data.index[fold_start_index:fold_end_index + 1])
-    #     y_train_data = y_train_data.drop(data.columns[0:13], axis = 1)
-
-    #     x_test_data = data.loc[fold_start_index:fold_end_index]
-    #     x_test_data = x_test_data.drop([data.columns[0], data.columns[13]], axis = 1)
-
-    #     y_test_data = data.loc[fold_start_index:fold_end_index]
-    #     y_test_data = y_test_data.drop(data.columns[0:13], axis = 1)
-
-
-
-    #     regression = LogisticRegression(solver = 'lbfgs')
-    #     y_train = classifyOutcomesOf(y_train_data)
-    #     regression.fit(x_train_data, y_train)
+   
 
     #     y_test = classifyOutcomesOf(y_test_data)
     #     accuracy = regression.score(x_test_data, y_test)
